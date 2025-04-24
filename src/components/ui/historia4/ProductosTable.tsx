@@ -35,7 +35,7 @@ export function ProductosTable({ hostId }: ProductosTableProps) {
     try {
       setLoading(true)
       const response = await fetch(
-        `https://codezen-backend-crng.onrender.com/api/host-history?hostId=${hostId}&page=${currentPage}&limit=${itemsPerPage}`,
+        `https://codezen-backend-gl15.onrender.com/api/host-history?hostId=${hostId}&page=${currentPage}&limit=${itemsPerPage}`,
       )
 
       if (!response.ok) {
