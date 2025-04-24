@@ -331,10 +331,10 @@ export function Tasklist({ hostId }: TasklistUsuario) {
                             {[1, 2, 3, 4, 5].map((star) => {
                               const calificacion = calificaciones.find((c) => c.reservaId === renter.idReserva)
                               const promedio = calificacion
-                                ? (calificacion.comportamiento +
+                                ? ((calificacion.comportamiento +
                                     calificacion.cuidadoVehiculo +
                                     calificacion.puntualidad) /
-                                  3
+                                  3)
                                 : 0
                               return (
                                 <span
@@ -348,11 +348,11 @@ export function Tasklist({ hostId }: TasklistUsuario) {
                             })}
                             {calificaciones.find((c) => c.reservaId === renter.idReserva) && (
                               <span className="rating-value">
-                                (
-                                {(
-                                  calificaciones.find((c) => c.reservaId === renter.idReserva)?.comportamiento || 0
-                                ).toFixed(1)}
-                                )
+                                ({(
+                                ((calificaciones.find((c) => c.reservaId === renter.idReserva)?.comportamiento ||0) +
+                                  (calificaciones.find((c) => c.reservaId === renter.idReserva)?.cuidadoVehiculo ||0) +
+                                  (calificaciones.find((c) => c.reservaId === renter.idReserva)?.puntualidad ||0)) / 3
+                                ).toFixed(1)})
                               </span>
                             )}
                           </div>
