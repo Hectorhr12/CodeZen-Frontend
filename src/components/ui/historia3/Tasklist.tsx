@@ -55,10 +55,10 @@ export function Tasklist({ hostId }: TasklistUsuario) {
       setIsLoading(true)
       try {
         // Fetch rentals
-        const rentalsResponse = await fetch(`https://codezen-backend-crng.onrender.com/api/rentas/completadas/${hostId}`)
+        const rentalsResponse = await fetch(`https://codezen-backend-gl15.onrender.com/api/rentas/completadas/${hostId}`)
         const rentalsData = await rentalsResponse.json()
         // Fetch ratings
-        const ratingsResponse = await fetch(`https://codezen-backend-crng.onrender.com/api/rentas/calificaciones/${hostId}`)
+        const ratingsResponse = await fetch(`https://codezen-backend-gl15.onrender.com/api/rentas/calificaciones/${hostId}`)
         const ratingsData = await ratingsResponse.json()
         // Process data
         if (Array.isArray(rentalsData)) {
@@ -151,8 +151,8 @@ export function Tasklist({ hostId }: TasklistUsuario) {
       // Check if this is an update or a new rating
       const existingRating = calificaciones.find((c) => c.reservaId === selected.idReserva)
       const url = existingRating
-        ? `https://codezen-backend-crng.onrender.com/api/rentas/calificaciones/${hostId}}/${existingRating.idCalificacion}`
-        : `https://codezen-backend-crng.onrender.com/api/rentas/calificaciones/${hostId}`
+        ? `https://codezen-backend-gl15.onrender.com/api/rentas/calificaciones/${hostId}}/${existingRating.idCalificacion}`
+        : `https://codezen-backend-gl15.onrender.com/api/rentas/calificaciones/${hostId}`
       const method = existingRating ? "PUT" : "POST"
       const response = await fetch(url, {
         method: method,
@@ -199,7 +199,7 @@ export function Tasklist({ hostId }: TasklistUsuario) {
         throw new Error("No se encontró la calificación")
       }
       const response = await fetch(
-        `https://codezen-backend-crng.onrender.com/api/rentas/calificaciones/${hostId}/${calificacion.idCalificacion}`,
+        `https://codezen-backend-gl15.onrender.com/api/rentas/calificaciones/${hostId}/${calificacion.idCalificacion}`,
         {
           method: "DELETE",
         },
