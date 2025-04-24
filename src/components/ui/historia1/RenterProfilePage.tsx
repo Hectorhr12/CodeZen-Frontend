@@ -61,7 +61,7 @@ export default function RenterProfilePage({ idUser }: UserID) {
     const fetchData = async () => {
       try {
         // Fetch user data
-        const userRes = await fetch(`https://codezen-backend-crng.onrender.com/api/usuario/${idUser}`)
+        const userRes = await fetch(`https://codezen-backend-gl15.onrender.com/api/usuario/${idUser}`)
         if (!userRes.ok) {
           throw new Error(`Error al obtener datos del usuario: ${userRes.status}`)
         }
@@ -69,7 +69,7 @@ export default function RenterProfilePage({ idUser }: UserID) {
         setRenter(userData)
 
         // Fetch comments
-        const commentsRes = await fetch(`https://codezen-backend-crng.onrender.com/api/comentarios/${idUser}`)
+        const commentsRes = await fetch(`https://codezen-backend-gl15.onrender.com/api/comentarios/${idUser}`)
         if (commentsRes.ok) {
           const commentsData = await commentsRes.json()
 
