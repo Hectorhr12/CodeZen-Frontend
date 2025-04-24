@@ -62,7 +62,7 @@ export default function Header() {
                 <DropdownMenuItem asChild>
                   <Link href="/historia4">
                     <History className="mr-2 h-4 w-4" />
-                    <span>Actividad de Automobil</span>
+                    <span>Actividad de Automovil</span>
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
