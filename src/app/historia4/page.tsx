@@ -14,7 +14,7 @@ export default function Historia4Page() {
     <div>
       <Header />
       <div className="p-8">
-        <h1 className="text-3xl font-bold mb-6">Historial de Reservaciones</h1>
+        <h1 className="text-3xl font-bold mb-6">Actividad de mi automovil</h1>
         {hostId ? (
           <>
         <ProductosTable hostId={hostId} />
