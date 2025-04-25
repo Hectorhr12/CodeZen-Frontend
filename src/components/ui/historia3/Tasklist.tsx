@@ -288,7 +288,7 @@ export function Tasklist({ hostId }: TasklistUsuario) {
 
   return (
     <div className="rental-container flex flex-col lg:flex-row gap-4 p-">
-      <div className="rental-history-panel w-full lg:w-1/2 max-h-[calc(100vh-8rem)] overflow-y-auto">
+      <div className="rental-history-panel w-full lg:w-1/2 max-h-[calc(90vh-8rem)] overflow-y-auto">
         <div className="rental-header">
           <h2 className="rental-title">Historial de rentas</h2>
           <div className="rental-count">
