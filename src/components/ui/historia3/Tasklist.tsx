@@ -287,8 +287,8 @@ export function Tasklist({ hostId }: TasklistUsuario) {
   }*/
 
   return (
-    <div className="rental-container">
-      <div className="rental-history-panel">
+    <div className="rental-container flex flex-col lg:flex-row gap-4 p-">
+      <div className="rental-history-panel w-full lg:w-1/2 max-h-[calc(100vh-8rem)] overflow-y-auto">
         <div className="rental-header">
           <h2 className="rental-title">Historial de rentas</h2>
           <div className="rental-count">
@@ -316,7 +316,7 @@ export function Tasklist({ hostId }: TasklistUsuario) {
           <div className="rental-list">
             {Array.isArray(renters) && renters.length > 0 ? (
               renters.map((renter) => (
-                <div key={renter.idReserva} className="rental-item">
+                <div key={renter.idReserva} className="rental-item flex flex-col md:flex-row justify-between gap-4 p-4 bg-gray-100 rounded-xl shadow-sm">
                   <div className="rental-item-left">
                     <div className="rental-image-placeholder"></div>
                     <div className="rental-user-avatar"></div>
@@ -422,7 +422,7 @@ export function Tasklist({ hostId }: TasklistUsuario) {
       </div>
 
       {showRatingPanel && selected && (
-        <div className="rating-panel">
+        <div className="rating-panel w-full lg:w-1/2 bg-white p-4 shadow rounded-xl">
           <div className="rating-panel-header">
             <div className="rating-user-info">
               <h3>{selected.usuarioNombre}</h3>
@@ -600,7 +600,7 @@ export function Tasklist({ hostId }: TasklistUsuario) {
       )}
 
       {!showRatingPanel && (
-        <div className="empty-rating-panel">
+        <div className="empty-rating-panel flex flex-col items-center justify-center text-center p-6 bg-gray-50 rounded-xl shadow-md w-full">
           <div className="empty-rating-icon">
             <svg
               xmlns="http://www.w3.org/2000/svg"
