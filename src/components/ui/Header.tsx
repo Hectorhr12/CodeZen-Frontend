@@ -2,27 +2,15 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import {
-  Menu,
-  LogOut,
-  ChevronDown,
-  History,
-  Star,
-} from "lucide-react";
-
+import {Menu,LogOut,ChevronDown,History,Star,} from "lucide-react";
 import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+import {  DropdownMenu,DropdownMenuContent,DropdownMenuItem,DropdownMenuSeparator,DropdownMenuTrigger,} from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-
 export default function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
-  const [openDropdown, setOpenDropdown] = useState(true);
+  const [openDropdownDesktop, setOpenDropdownDesktop] = useState(false);
+  const [openDropdownMobile, setOpenDropdownMobile] = useState(false);
+
   const [openMenu, setOpenMenu] = useState(false);
 
   return (
@@ -46,7 +34,7 @@ export default function Header() {
         {/* Dropdown de usuario en Desktop */}
         {isLoggedIn && (
           <div className="hidden md:flex items-center gap-4">
-            <DropdownMenu open={openDropdown} onOpenChange={setOpenDropdown}>
+            <DropdownMenu open={openDropdownDesktop} onOpenChange={setOpenDropdownDesktop}>
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" className="flex items-center gap-2">
                   <Avatar className="h-8 w-8">
@@ -56,8 +44,8 @@ export default function Header() {
                   <ChevronDown className="h-4 w-4 opacity-50" />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-56">
-                <DropdownMenuItem asChild>
+              <DropdownMenuContent className="z-50" align="end">
+              <DropdownMenuItem asChild>
                   <Link href="/historia3">
                     <Star className="mr-2 h-4 w-4" />
                     <span>Calificar Renters</span>
@@ -91,7 +79,7 @@ export default function Header() {
           {/* Dropdown del usuario (versión móvil) */}
           {isLoggedIn && (
             <div className="mt-4 w-full">
-              <DropdownMenu open={openDropdown} onOpenChange={setOpenDropdown}>
+              <DropdownMenu open={openDropdownMobile} onOpenChange={setOpenDropdownMobile}>
                 <DropdownMenuTrigger asChild>
                   <Button variant="outline" className="w-full justify-between">
                     <div className="flex items-center gap-2">
@@ -103,15 +91,15 @@ export default function Header() {
                     <ChevronDown className="h-4 w-4 opacity-50" />
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-full">
-                  <DropdownMenuItem asChild>
-                    <Link href="/historia3">
+                <DropdownMenuContent className="w-full z-50">
+                <DropdownMenuItem asChild>
+                <Link href="/historia3" onClick={() => {setOpenDropdownMobile(false);setOpenMenu(false)}}>
                       <Star className="mr-2 h-4 w-4" />
                       <span>Calificar Renters</span>
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
-                    <Link href="/historia4">
+                    <Link href="/historia4" onClick={() =>{setOpenDropdownMobile(false); setOpenMenu(false)}}>
                       <History className="mr-2 h-4 w-4" />
                       <span>Actividad de Automóvil</span>
                     </Link>
